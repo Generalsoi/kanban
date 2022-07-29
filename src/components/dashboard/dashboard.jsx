@@ -5,10 +5,10 @@ import Content from "./../content/content";
 const Dashboard = () => {
   return (
     <div className="flex">
-      <div className="w-72">
+      <div className={`w-1/6 h-screen`}>
         <Sidebar />
       </div>
-      <div>
+      <div className="bg-black h-screen w-5/6">
         <Content />
       </div>
     </div>
