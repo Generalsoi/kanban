@@ -6,13 +6,15 @@ const Sidebar = () => {
   //created an array containing the menus in the sidebar.
   const sidebarMenu = ["Platform Launch", "Marketing Plan", "Roadmap"];
   return (
-    <div>
-      <div className="w-full p-4 flex gap-3 items-center">
+    <div className="bg-white dark:bg-[#2B2C37] h-screen">
+      <div className="w-full p-4 flex gap-3 items-center ">
         <img src={Logo} alt="kanban logo" />
-        <h4 className="font-jakarta font-extrabold text-3xl">kanban</h4>
+        <h4 className="font-jakarta font-extrabold text-3xl text-[#000112] dark:text-white">
+          kanban
+        </h4>
       </div>
 
-      <div className="w-full my-4">
+      <div className="w-full h-2/3 my-4">
         <p className="m-4 text-xs font-jakarta font-bold text-mediumGrey">
           ALL BOARDS (3)
         </p>
@@ -30,6 +32,10 @@ const Sidebar = () => {
             </li>
           </ul>
         </div>
+      </div>
+
+      <div className="h-1/3">
+        <div></div>
       </div>
     </div>
   );
