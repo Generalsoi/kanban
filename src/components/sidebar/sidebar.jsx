@@ -1,6 +1,7 @@
 import React from "react";
 import Logo from "../../assets/images/logo.png";
 import MenuIcon from "../../assets/images/menuicons.png";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Sidebar = () => {
   //created an array containing the menus in the sidebar.
@@ -35,7 +36,10 @@ const Sidebar = () => {
       </div>
 
       <div className="h-1/3">
-        <div></div>
+        <div>
+          <p>Toggle</p>
+          <FontAwesomeIcon icon="fa-solid fa-toggle-off" />
+        </div>
       </div>
     </div>
   );
