@@ -37,7 +37,6 @@ const Sidebar = () => {
 
       <div className="h-1/3">
         <div>
-          <p>Toggle</p>
           <FontAwesomeIcon icon="fa-solid fa-toggle-off" />
         </div>
       </div>
