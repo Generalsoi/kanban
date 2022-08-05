@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Logo from "../../assets/images/logo.png";
 import MenuIcon from "../../assets/images/menuicons.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -12,12 +12,20 @@ const Sidebar = () => {
   const sidebarMenu = ["Platform Launch", "Marketing Plan", "Roadmap"];
 
   // creating a dark state so I can toggle
-  const { dark, setDark } = useState(true);
+  const [dark, setDark] = useState(false);
 
   // creating a function to handle the switch on clicking the toggle button.
-  const handleSwitch = () => {
-    setDark(!dark);
-  };
+  // const handleSwitch = () => {
+  //   setDark(!dark);
+  // };
+
+  useEffect(() => {
+    if (dark) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, [dark]);
 
   return (
     <div className="bg-white dark:bg-[#2B2C37] h-screen">
@@ -55,7 +63,7 @@ const Sidebar = () => {
         <div className="flex w-full rounded h-10 p-2 justify-center items-center gap-2 bg-[#F4F7FD] dark:bg-[#20212C]">
           <img
             className="cursor-pointer"
-            onClick={handleSwitch}
+            onClick={() => setDark(false)}
             src={LightMode}
             alt="light mode"
           />
@@ -67,8 +75,8 @@ const Sidebar = () => {
 
           {/* this is the div for the toggle*/}
           <div
-            className="w-10 h-4 rounded-full p-1 bg-[#635FC7]"
-            onClick={handleSwitch}
+            className="w-10 h-4 rounded-full p-1 bg-[#635FC7] cursor-pointer"
+            onClick={() => setDark(!dark)}
           >
             <div
               className={`w-2 h-2 rounded-full bg-white transition-all duration-500 ${
@@ -79,7 +87,7 @@ const Sidebar = () => {
 
           <img
             className="cursor-pointer"
-            onClick={handleSwitch}
+            onClick={() => setDark(true)}
             src={DarkMode}
             alt="dark mode"
           />
