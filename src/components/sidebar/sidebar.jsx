@@ -12,8 +12,12 @@ const Sidebar = () => {
   const sidebarMenu = ["Platform Launch", "Marketing Plan", "Roadmap"];
 
   // creating a dark state so I can toggle
-  const { dark, setDark } = useState(false);
-  console.log(dark);
+  const { dark, setDark } = useState(true);
+
+  // creating a function to handle the switch on clicking the toggle button.
+  const handleSwitch = () => {
+    setDark(!dark);
+  };
 
   return (
     <div className="bg-white dark:bg-[#2B2C37] h-screen">
@@ -30,8 +34,11 @@ const Sidebar = () => {
         </p>
         <div>
           <ul>
-            {sidebarMenu.map((menu) => (
-              <li className="w-full h-12 p-4 text-mediumGrey flex items-center gap-3 cursor-pointer font-jakarta text-sm">
+            {sidebarMenu.map((menu, index) => (
+              <li
+                key={index}
+                className="w-full h-12 p-4 text-mediumGrey flex items-center gap-3 cursor-pointer font-jakarta text-sm"
+              >
                 <img src={MenuIcon} alt="menuicon" /> {menu}
               </li>
             ))}
@@ -48,18 +55,31 @@ const Sidebar = () => {
         <div className="flex w-full rounded h-10 p-2 justify-center items-center gap-2 bg-[#F4F7FD] dark:bg-[#20212C]">
           <img
             className="cursor-pointer"
-            onClick={() => setDark(false)}
+            onClick={handleSwitch}
             src={LightMode}
             alt="light mode"
           />
-          {dark ? (
+          {/* {dark ? (
             <img src={ToggleOn} alt="dark mode on" />
           ) : (
             <img src={ToggleOff} alt="dark mode off" />
-          )}
+          )} */}
+
+          {/* this is the div for the toggle*/}
+          <div
+            className="w-10 h-4 rounded-full p-1 bg-[#635FC7]"
+            onClick={handleSwitch}
+          >
+            <div
+              className={`w-2 h-2 rounded-full bg-white transition-all duration-500 ${
+                dark ? "translate-x-[300%]" : "translate-x-0"
+              }`}
+            ></div>
+          </div>
+
           <img
             className="cursor-pointer"
-            onClick={() => setDark(true)}
+            onClick={handleSwitch}
             src={DarkMode}
             alt="dark mode"
           />
