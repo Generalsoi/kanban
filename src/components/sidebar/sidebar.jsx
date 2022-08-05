@@ -14,6 +14,9 @@ const Sidebar = () => {
   // creating a dark state so I can toggle
   const [dark, setDark] = useState(false);
 
+  // creating an active state for switching between different menus
+  const [active, setActive] = useState("Platform Launch");
+
   // creating a function to handle the switch on clicking the toggle button.
   // const handleSwitch = () => {
   //   setDark(!dark);
@@ -41,11 +44,16 @@ const Sidebar = () => {
           ALL BOARDS (3)
         </p>
         <div>
-          <ul>
+          <ul className="pr-8">
             {sidebarMenu.map((menu, index) => (
               <li
                 key={index}
-                className="w-full h-12 p-4 text-mediumGrey flex items-center gap-3 cursor-pointer font-jakarta text-sm"
+                className={`w-full h-12 p-4  flex items-center gap-3 cursor-pointer font-jakarta text-sm ${
+                  active === menu && "bg-[#635FC7]"
+                } ${active === menu ? "text-white" : "text-mediumGrey"} ${
+                  active === menu && "rounded-r-full"
+                } `}
+                onClick={() => setActive(menu)}
               >
                 <img src={MenuIcon} alt="menuicon" /> {menu}
               </li>
