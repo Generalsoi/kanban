@@ -100,7 +100,9 @@ const Sidebar = () => {
             alt="dark mode"
           />
         </div>
-        <p>Hide sidebar</p>
+        <p className="text-[#828FA3] mt-4 font-bold font-jakarta">
+          Hide sidebar
+        </p>
       </div>
     </div>
   );
