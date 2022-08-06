@@ -14,6 +14,13 @@ const Content = () => {
           </button>
         </div>
       </div>
+
+      <div className="w-full block p-auto">
+        <h4>This board is empty. Create a new column to get started.</h4>
+        <button className="bg-[#635FC7] text-white p-4 rounded-full border-none w-40 h-12 flex items-center justify-center font-jakarta">
+          +Add New Column
+        </button>
+      </div>
     </div>
   );
 };
