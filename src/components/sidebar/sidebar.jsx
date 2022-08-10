@@ -4,10 +4,13 @@ import MenuIcon from "../../assets/images/menuicons.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import LightMode from "../../assets/images/lightmode.png";
 import DarkMode from "../../assets/images/darkmode.png";
-import ToggleOn from "../../assets/images/toggledarkmode.png";
-import ToggleOff from "../../assets/images/togglelightmode.png";
+import EyeIcon from "../../assets/images/eye.png";
 
-const Sidebar = () => {
+const Sidebar = (props) => {
+  // creating an object destructuring for passing down the props
+  const { sidebar, setSidebar } = props;
+  console.log(sidebar);
+
   //created an array containing the menus in the sidebar.
   const sidebarMenu = ["Platform Launch", "Marketing Plan", "Roadmap"];
 
@@ -100,7 +103,11 @@ const Sidebar = () => {
             alt="dark mode"
           />
         </div>
-        <p className="text-[#828FA3] mt-4 font-bold font-jakarta">
+        <p
+          className="text-[#828FA3] mt-4 font-bold font-jakarta flex items-center gap-2 cursor-pointer"
+          onClick={() => setSidebar(false)}
+        >
+          <img src={EyeIcon} alt="eye-icon" />
           Hide sidebar
         </p>
       </div>

@@ -13,7 +13,7 @@ const Content = () => {
         <div>
           <button
             className={`${
-              disabled ? "opacity-70" : "opacity-100"
+              disabled ? "opacity-50" : "opacity-100"
             } bg-[#635FC7] text-white p-4 rounded-full border-none w-40 h-12 flex items-center justify-center font-jakarta`}
             disabled={true}
           >
