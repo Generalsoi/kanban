@@ -92,7 +92,7 @@ const Sidebar = (props) => {
             <div
               className={`w-2 h-2 rounded-full bg-white transition-all duration-500 ${
                 dark ? "translate-x-[300%]" : "translate-x-0"
-              }`}
+              } ${!sidebar && "hidden"}`}
             ></div>
           </div>
 
