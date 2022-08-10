@@ -20,7 +20,7 @@ const Dashboard = () => {
           sidebar ? "w-4/5" : "w-full"
         }`}
       >
-        <Content />
+        <Content sidebar={sidebar} setSidebar={setSidebar} />
       </div>
     </div>
   );

@@ -104,7 +104,7 @@ const Sidebar = (props) => {
           />
         </div>
         <p
-          className="text-[#828FA3] mt-4 font-bold font-jakarta flex items-center gap-2 cursor-pointer"
+          className="text-[#828FA3] mt-4 font-bold font-jakarta flex items-center gap-2 cursor-pointer transition-all duration-500"
           onClick={() => setSidebar(false)}
         >
           <img src={EyeIcon} alt="eye-icon" />

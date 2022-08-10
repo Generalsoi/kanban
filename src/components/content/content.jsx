@@ -1,10 +1,14 @@
 import React, { useState } from "react";
+import OpenEyeIcon from "../../assets/images/openeye.png";
 
-const Content = () => {
+const Content = (props) => {
+  // passing the props using object destructuring
+  const { sidebar, setSidebar } = props;
+
   const [disabled, setDisabled] = useState(false);
 
   return (
-    <div className="h-screen">
+    <div className="h-screen relative">
       <div className="flex w-full h-20 p-4 justify-between items-center bg-white dark:bg-[#2B2C37] border-l-2 ">
         <h3 className="font-jakarta font-bold text-2xl dark:text-white">
           Platform Launch
@@ -30,6 +34,15 @@ const Content = () => {
           +Add New Column
         </button>
       </div>
+
+      {!sidebar && (
+        <div
+          className="absolute left-0 bottom-6 rounded-r-full flex items-center justify-center bg-[#635FC7] w-12 h-12 cursor-pointer transition-all duration-300"
+          onClick={() => setSidebar(true)}
+        >
+          <img src={OpenEyeIcon} alt="open-eye-icon" />
+        </div>
+      )}
     </div>
   );
 };
