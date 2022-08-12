@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import OpenEyeIcon from "../../assets/images/openeye.png";
 import Column from "./column";
+import NewColumn from "./../modals/newColumn";
 
 const Content = (props) => {
   // passing the props using object destructuring
@@ -20,7 +21,7 @@ const Content = (props) => {
 
         <div>
           <button
-            className={`${disabled ? "opacity-5" : "opacity-100"} ${
+            className={`${disabled ? "bg-opacity-50" : "bg-opacity-100"} ${
               column && !disabled
             } bg-[#635FC7] text-white p-4 rounded-full border-none w-40 h-12 flex items-center justify-center font-jakarta`}
             disabled={true}
@@ -30,7 +31,7 @@ const Content = (props) => {
         </div>
       </div>
       {column ? (
-        <Column />
+        <NewColumn />
       ) : (
         <div className="w-full flex flex-col items-center justify-center">
           <h4 className="mt-64 text-[#828FA3] text-lg font-bold font-jakarta">

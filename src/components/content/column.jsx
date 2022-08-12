@@ -1,7 +1,7 @@
 import React from "react";
 
 const Column = () => {
-  return <div>Column</div>;
+  return <div className="p-4">Column</div>;
 };
 
 export default Column;
