@@ -31,7 +31,7 @@ const Content = (props) => {
         </div>
       </div>
       {column ? (
-        <NewColumn />
+        <NewColumn column={column} setColumn={setColumn} />
       ) : (
         <div className="w-full flex flex-col items-center justify-center">
           <h4 className="mt-64 text-[#828FA3] text-lg font-bold font-jakarta">
