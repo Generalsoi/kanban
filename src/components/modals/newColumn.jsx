@@ -9,9 +9,13 @@ const NewColumn = (props) => {
       className="fixed h-full w-full inset-0 bg-gray-600 bg-opacity-50 flex justify-center items-center "
       onClick={() => setColumn(false)}
     >
-      <div>
+      <div
+        className="w-80 h-48 rounded-lg bg-white p-4 flex "
+        onClick={(e) => e.stopPropagation()}
+      >
         <form action="">
           <input type="text" placeholder="Enter column name" />
+          <br />
           <button>Add column</button>
         </form>
       </div>
