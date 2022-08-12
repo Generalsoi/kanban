@@ -1,11 +1,15 @@
 import React, { useState } from "react";
 import OpenEyeIcon from "../../assets/images/openeye.png";
+import Column from "./column";
 
 const Content = (props) => {
   // passing the props using object destructuring
   const { sidebar, setSidebar } = props;
 
   const [disabled, setDisabled] = useState(false);
+
+  // setting the state for the column.
+  const [column, setColumn] = useState(false);
 
   return (
     <div className="h-screen relative">
@@ -16,8 +20,8 @@ const Content = (props) => {
 
         <div>
           <button
-            className={`${
-              disabled ? "opacity-50" : "opacity-100"
+            className={`${disabled ? "opacity-5" : "opacity-100"} ${
+              column && !disabled
             } bg-[#635FC7] text-white p-4 rounded-full border-none w-40 h-12 flex items-center justify-center font-jakarta`}
             disabled={true}
           >
@@ -25,15 +29,21 @@ const Content = (props) => {
           </button>
         </div>
       </div>
-
-      <div className="w-full flex flex-col items-center justify-center">
-        <h4 className="mt-64 text-[#828FA3] text-lg font-bold font-jakarta">
-          This board is empty. Create a new column to get started.
-        </h4>
-        <button className="bg-[#635FC7] text-white p-4 rounded-full border-none w-48 mt-4 h-12 flex items-center justify-center font-jakarta">
-          +Add New Column
-        </button>
-      </div>
+      {column ? (
+        <Column />
+      ) : (
+        <div className="w-full flex flex-col items-center justify-center">
+          <h4 className="mt-64 text-[#828FA3] text-lg font-bold font-jakarta">
+            This board is empty. Create a new column to get started.
+          </h4>
+          <button
+            className="bg-[#635FC7] text-white p-4 rounded-full border-none w-48 mt-4 h-12 flex items-center justify-center font-jakarta"
+            onClick={() => setColumn(true)}
+          >
+            +Add New Column
+          </button>
+        </div>
+      )}
 
       {!sidebar && (
         <div
