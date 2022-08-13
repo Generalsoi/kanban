@@ -1,4 +1,5 @@
 import React from "react";
+import CloseBtn from "../../assets/images/close.png";
 
 const NewColumn = (props) => {
   // passing the column and setcolumn props to this NewColumn modal component
@@ -10,7 +11,7 @@ const NewColumn = (props) => {
       onClick={() => setColumn(false)}
     >
       <div
-        className="w-80 h-48 rounded-lg bg-white p-8 flex font-jakarta "
+        className="w-80 h-48 rounded-lg bg-white p-8 flex font-jakarta relative "
         onClick={(e) => e.stopPropagation()}
       >
         <form action="" className="w-full">
@@ -32,6 +33,13 @@ const NewColumn = (props) => {
             </div>
           </div>
         </form>
+
+        <img
+          src={CloseBtn}
+          alt="close button"
+          className="w-4 h-4 cursor-pointer absolute top-4 right-4"
+          onClick={() => setColumn(false)}
+        />
       </div>
     </div>
   );
