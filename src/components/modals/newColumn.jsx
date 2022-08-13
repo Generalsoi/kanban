@@ -5,10 +5,17 @@ const NewColumn = (props) => {
   // passing the column and setcolumn props to this NewColumn modal component
   const { column, setColumn } = props;
 
+  // defining a function to close the modal on pressing the esc key down
+  const handleOnKeyDown = (e) => {
+    e.key === "Escape" && setColumn(false);
+  };
+
   return (
     <div
       className="fixed h-full w-full inset-0 bg-gray-600 bg-opacity-50 flex justify-center items-center "
       onClick={() => setColumn(false)}
+      tabIndex={0}
+      onKeyDown={handleOnKeyDown}
     >
       <div
         className="w-80 h-48 rounded-lg bg-white p-8 flex font-jakarta relative "
