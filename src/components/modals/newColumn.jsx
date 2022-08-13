@@ -10,13 +10,27 @@ const NewColumn = (props) => {
       onClick={() => setColumn(false)}
     >
       <div
-        className="w-80 h-48 rounded-lg bg-white p-4 flex "
+        className="w-80 h-48 rounded-lg bg-white p-8 flex font-jakarta "
         onClick={(e) => e.stopPropagation()}
       >
-        <form action="">
-          <input type="text" placeholder="Enter column name" />
-          <br />
-          <button>Add column</button>
+        <form action="" className="w-full">
+          <div className="flex flex-col justify-center w-full">
+            <label htmlFor="columnName" className="mb-4 font-bold">
+              Title
+            </label>
+            <input
+              type="text"
+              id="columnName"
+              placeholder="Enter column title"
+              className="border border-[#635FC7] focus:outline-none focus:border-[#635FC7]-700 rounded-sm mb-4 p-3 h-10 w-full"
+            />
+
+            <div className="flex justify-center">
+              <button className="w-40 h-10 bg-[#635FC7] text-white rounded-full text-xs">
+                Add column
+              </button>
+            </div>
+          </div>
         </form>
       </div>
     </div>
