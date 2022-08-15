@@ -18,19 +18,22 @@ const NewColumn = (props) => {
       onKeyDown={handleOnKeyDown}
     >
       <div
-        className="w-80 h-48 rounded-lg bg-white p-8 flex font-jakarta relative "
+        className="w-80 h-48 rounded-lg bg-white dark:bg-[#2B2C37] p-8 flex font-jakarta relative "
         onClick={(e) => e.stopPropagation()}
       >
         <form action="" className="w-full">
           <div className="flex flex-col justify-center w-full">
-            <label htmlFor="columnName" className="mb-4 font-bold">
+            <label
+              htmlFor="columnName"
+              className="mb-4 font-bold dark:text-white"
+            >
               Title
             </label>
             <input
               type="text"
               id="columnName"
               placeholder="Enter column title"
-              className="border border-[#635FC7] focus:outline-none focus:border-[#635FC7]-700 rounded-sm mb-4 p-3 h-10 w-full"
+              className="border border-[#635FC7] dark:bg-[#2B2C37] focus:outline-none focus:border-[#635FC7]-700 dark:focus:text-white rounded-sm mb-4 p-3 h-10 w-full"
             />
 
             <div className="flex justify-center">
