@@ -12,6 +12,9 @@ const Content = (props) => {
   // setting the state for the column.
   const [column, setColumn] = useState(false);
 
+  // creating a state for getting the value from the new column input modal
+  const [value, setValue] = useState("");
+
   return (
     <div className="h-screen relative">
       <div className="flex w-full h-20 p-4 justify-between items-center bg-white dark:bg-[#2B2C37] border-l-2 ">
@@ -31,7 +34,12 @@ const Content = (props) => {
         </div>
       </div>
       {column ? (
-        <NewColumn column={column} setColumn={setColumn} />
+        <NewColumn
+          column={column}
+          setColumn={setColumn}
+          value={value}
+          setValue={setValue}
+        />
       ) : (
         <div className="w-full flex flex-col items-center justify-center">
           <h4 className="mt-64 text-[#828FA3] text-lg font-bold font-jakarta">

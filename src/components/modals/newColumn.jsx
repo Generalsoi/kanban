@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useRef } from "react";
 import CloseBtn from "../../assets/images/close.png";
 
 const NewColumn = (props) => {
-  // passing the column and setcolumn props to this NewColumn modal component
-  const { column, setColumn } = props;
+  // passing props to this NewColumn modal component
+  const { column, setColumn, value, setValue } = props;
+
+  // initializing the useRef hook for the input field in this component
+  const inputRef = useRef("");
 
   // defining a function to close the modal on pressing the esc key down
   const handleOnKeyDown = (e) => {
@@ -13,6 +16,8 @@ const NewColumn = (props) => {
   // defining a function that is called when user clicks on the add column button in the form
   const handleAddColumn = (e) => {
     e.preventDefault();
+    setValue(inputRef.current.value);
+    console.log(value);
   };
 
   return (
@@ -38,6 +43,7 @@ const NewColumn = (props) => {
               type="text"
               id="columnName"
               placeholder="Enter column title"
+              ref={inputRef}
               className="border border-[#635FC7] dark:bg-[#2B2C37] focus:outline-none focus:border-[#635FC7]-700 dark:focus:text-white rounded-sm mb-4 p-3 h-10 w-full"
             />
 
