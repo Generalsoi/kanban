@@ -17,7 +17,7 @@ const NewColumn = (props) => {
   const handleAddColumn = (e) => {
     e.preventDefault();
     setValue(inputRef.current.value);
-    console.log(value);
+    console.log(value); // currently i have to click two times before this value is logged on the console. iono why?s
   };
 
   return (
