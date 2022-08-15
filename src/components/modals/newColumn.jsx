@@ -10,6 +10,11 @@ const NewColumn = (props) => {
     e.key === "Escape" && setColumn(false);
   };
 
+  // defining a function that is called when user clicks on the add column button in the form
+  const handleAddColumn = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <div
       className="fixed h-full w-full inset-0 bg-gray-600 bg-opacity-50 flex justify-center items-center "
@@ -21,7 +26,7 @@ const NewColumn = (props) => {
         className="w-80 h-48 rounded-lg bg-white dark:bg-[#2B2C37] p-8 flex font-jakarta relative "
         onClick={(e) => e.stopPropagation()}
       >
-        <form action="" className="w-full">
+        <form onSubmit={handleAddColumn} className="w-full">
           <div className="flex flex-col justify-center w-full">
             <label
               htmlFor="columnName"
@@ -37,7 +42,10 @@ const NewColumn = (props) => {
             />
 
             <div className="flex justify-center">
-              <button className="w-40 h-10 bg-[#635FC7] text-white rounded-full text-xs">
+              <button
+                className="w-40 h-10 bg-[#635FC7] text-white rounded-full text-xs"
+                type="submit"
+              >
                 Add column
               </button>
             </div>
