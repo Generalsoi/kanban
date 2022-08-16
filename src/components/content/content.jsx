@@ -10,10 +10,28 @@ const Content = (props) => {
   const [disabled, setDisabled] = useState(false);
 
   // setting the state for the column.
-  const [column, setColumn] = useState(false);
+  const [appData, setAppData] = useState([]);
+
+  // setting the state for opening the modal
+  const [modal, setModal] = useState(false);
+
+  // defining the function to create a column
+  const handleCreateColumn = (columnName) => {
+    if (!columnName) {
+      return;
+    }
+
+    const newColumn = {
+      title: columnName,
+      tasks: [],
+      id: Date.now(),
+    };
+
+    setAppData((appData) => [...appData, newColumn]);
+  };
 
   // creating a state for getting the value from the new column input modal
-  const [value, setValue] = useState("");
+  // const [value, setValue] = useState({ columnName: "" });
 
   return (
     <div className="h-screen relative">
@@ -25,7 +43,7 @@ const Content = (props) => {
         <div>
           <button
             className={`${disabled ? "bg-opacity-50" : "bg-opacity-100"} ${
-              column && !disabled
+              appData && !disabled
             } bg-[#635FC7] text-white p-4 rounded-full border-none w-40 h-12 flex items-center justify-center font-jakarta`}
             disabled={true}
           >
@@ -33,13 +51,26 @@ const Content = (props) => {
           </button>
         </div>
       </div>
-      {column ? (
-        <NewColumn
-          column={column}
-          setColumn={setColumn}
-          value={value}
-          setValue={setValue}
-        />
+
+      {/* this is where I map the column names created in the app data array to be displayed on the page.
+       they display if the length of the appData array is not 0.  */}
+      {!!appData.length ? (
+        <div className="flex h-full gap-4 p-4 ">
+          <div className="w-4/5 flex gap-4">
+            {appData.map((column) => (
+              <p className="w-20 font-jakarta uppercase text-[#828FA3] font-bold text-sm">
+                {column.title}
+              </p>
+            ))}
+          </div>
+
+          <p
+            className="w-1/5 mt-auto mb-auto cursor-pointer font-bold text-lg text-[#635FC7]"
+            onClick={() => setModal(true)}
+          >
+            + new column
+          </p>
+        </div>
       ) : (
         <div className="w-full flex flex-col items-center justify-center">
           <h4 className="mt-64 text-[#828FA3] text-lg font-bold font-jakarta">
@@ -47,11 +78,19 @@ const Content = (props) => {
           </h4>
           <button
             className="bg-[#635FC7] text-white p-4 rounded-full border-none w-48 mt-4 h-12 flex items-center justify-center font-jakarta"
-            onClick={() => setColumn(true)}
+            onClick={() => setModal(true)}
           >
             +Add New Column
           </button>
         </div>
+      )}
+
+      {modal && (
+        <NewColumn
+          handleCreateColumn={handleCreateColumn}
+          modal={modal}
+          setModal={setModal}
+        />
       )}
 
       {!sidebar && (
