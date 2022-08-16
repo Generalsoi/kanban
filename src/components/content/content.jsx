@@ -7,7 +7,7 @@ const Content = (props) => {
   // passing the props using object destructuring
   const { sidebar, setSidebar } = props;
 
-  const [disabled, setDisabled] = useState(false);
+  const [disabled, setDisabled] = useState(true);
 
   // setting the state for the column data.
   const [appData, setAppData] = useState([]);
@@ -28,6 +28,7 @@ const Content = (props) => {
     };
 
     setAppData((appData) => [...appData, newColumn]);
+    setDisabled(false);
   };
 
   // creating a state for getting the value from the new column input modal
@@ -45,7 +46,7 @@ const Content = (props) => {
             className={`${disabled ? "bg-opacity-50" : "bg-opacity-100"} ${
               appData && !disabled
             } bg-[#635FC7] text-white p-4 rounded-full border-none w-40 h-12 flex items-center justify-center font-jakarta`}
-            disabled={true}
+            disabled={disabled ? true : false}
           >
             +Add New Task
           </button>
