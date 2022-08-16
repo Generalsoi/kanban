@@ -68,7 +68,7 @@ const Content = (props) => {
             className="w-1/5 mt-auto mb-auto cursor-pointer font-bold text-lg text-[#635FC7]"
             onClick={() => setModal(true)}
           >
-            + new column
+            + New Column
           </p>
         </div>
       ) : (
