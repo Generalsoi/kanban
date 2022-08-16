@@ -9,7 +9,7 @@ const Content = (props) => {
 
   const [disabled, setDisabled] = useState(false);
 
-  // setting the state for the column.
+  // setting the state for the column data.
   const [appData, setAppData] = useState([]);
 
   // setting the state for opening the modal
