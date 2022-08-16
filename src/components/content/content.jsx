@@ -21,6 +21,7 @@ const Content = (props) => {
       return;
     }
 
+    // defining the new column object
     const newColumn = {
       title: columnName,
       tasks: [],
@@ -55,7 +56,7 @@ const Content = (props) => {
 
       {/* this is where I map the column names created in the app data array to be displayed on the page.
        they display if the length of the appData array is not 0.  */}
-      {!!appData.length ? (
+      {appData.length ? (
         <div className="flex h-full gap-4 p-4 ">
           <div className="w-4/5 flex gap-4">
             {appData.map((column) => (
@@ -94,6 +95,7 @@ const Content = (props) => {
         />
       )}
 
+      {/* the logic for hiding and releasing the sidebar view */}
       {!sidebar && (
         <div
           className="absolute left-0 bottom-6 rounded-r-full flex items-center justify-center bg-[#635FC7] w-12 h-12 cursor-pointer transition-all duration-300"
