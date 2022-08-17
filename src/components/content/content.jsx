@@ -58,20 +58,24 @@ const Content = (props) => {
        they display if the length of the appData array is not 0.  */}
       {appData.length ? (
         <div className="flex h-full gap-4 p-4 ">
-          <div className="w-4/5 flex gap-4">
+          <div className="w-4/5 flex gap-4 overflow-x-auto">
             {appData.map((column) => (
-              <p className="w-20 font-jakarta uppercase text-[#828FA3] font-bold text-sm">
-                {column.title}
-              </p>
+              <div className="w-40">
+                <p className=" font-jakarta uppercase text-[#828FA3] font-bold text-sm">
+                  {column.title}
+                </p>
+              </div>
             ))}
           </div>
 
-          <p
-            className="w-1/5 mt-auto mb-auto cursor-pointer font-bold text-lg text-[#635FC7]"
-            onClick={() => setModal(true)}
-          >
-            + New Column
-          </p>
+          <div className="w-1/5 h-full flex items-center justify-center bg-gradient-to-r from-[#E9EFFA] to-[#F2F2F2]">
+            <p
+              className="cursor-pointer font-bold text-lg text-[#635FC7]"
+              onClick={() => setModal(true)}
+            >
+              + New Column
+            </p>
+          </div>
         </div>
       ) : (
         <div className="w-full flex flex-col items-center justify-center">
