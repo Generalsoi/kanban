@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import OpenEyeIcon from "../../assets/images/openeye.png";
 import Column from "./column";
 import NewColumn from "./../modals/newColumn";
+import randomColor from "randomcolor";
 
 const Content = (props) => {
   // passing the props using object destructuring
@@ -32,6 +33,10 @@ const Content = (props) => {
     setDisabled(false);
   };
 
+  // initializing the randomColor variable so it can be used in the new column generated
+  let colorRandom = randomColor();
+  console.log(colorRandom);
+
   // creating a state for getting the value from the new column input modal
   // const [value, setValue] = useState({ columnName: "" });
 
@@ -61,9 +66,14 @@ const Content = (props) => {
           <div className="w-4/5 flex gap-4 overflow-x-auto">
             {appData.map((column) => (
               <div className="w-40">
-                <p className=" font-jakarta uppercase text-[#828FA3] font-bold text-sm">
-                  {column.title}
-                </p>
+                <div className=" flex items-center gap-1">
+                  <div
+                    className={`w-8 h-8 rounded-full bg-[${colorRandom}] `}
+                  ></div>
+                  <p className=" font-jakarta uppercase text-[#828FA3] font-bold text-sm">
+                    {column.title}
+                  </p>
+                </div>
               </div>
             ))}
           </div>
