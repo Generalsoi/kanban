@@ -17,8 +17,6 @@ const Content = (props) => {
   const [modal, setModal] = useState(false);
 
   const [divcolor, setDivColor] = useState("");
-  // initializing the randomColor variable so it can be used in the new column generated
-  var colorRandom = randomColor();
 
   // defining the function to create a column
   const handleCreateColumn = (columnName) => {
@@ -26,17 +24,23 @@ const Content = (props) => {
       return;
     }
 
+    // initializing the randomColor variable so it can be used in the new column generated
+    let colorRandom = randomColor();
+
     // defining the new column object
     const newColumn = {
       title: columnName,
       tasks: [],
       id: Date.now(),
+      // bgColor: colorRandom,
     };
 
     setAppData((appData) => [...appData, newColumn]);
     setDisabled(false);
-    // setDivColor(colorRandom);
+    setDivColor(colorRandom);
   };
+
+  console.log(divcolor);
 
   // creating a state for getting the value from the new column input modal
   // const [value, setValue] = useState({ columnName: "" });
@@ -69,7 +73,7 @@ const Content = (props) => {
               <div className="w-40">
                 <div className=" flex items-center gap-1">
                   <div
-                    className={`w-4 h-4 rounded-full bg-[${divcolor}] `}
+                    className={`w-4 h-4 rounded-full bg-[${divcolor}]`}
                   ></div>
                   <p className=" font-jakarta uppercase text-[#828FA3] font-bold text-sm">
                     {column.title}
