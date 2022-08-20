@@ -3,6 +3,7 @@ import OpenEyeIcon from "../../assets/images/openeye.png";
 import Column from "./column";
 import NewColumn from "./../modals/newColumn";
 import randomColor from "randomcolor";
+import NewTask from "../modals/newTask";
 
 const Content = (props) => {
   // passing the props using object destructuring
@@ -13,8 +14,11 @@ const Content = (props) => {
   // setting the state for the column data.
   const [appData, setAppData] = useState([]);
 
-  // setting the state for opening the modal
+  // setting the state for opening the new column modal
   const [modal, setModal] = useState(false);
+
+  // setting the state for opening the new task modal
+  const [newTaskModal, setNewTaskModal] = useState(false);
 
   // const [divcolor, setDivColor] = useState("");
   // defining the function that generates random color
@@ -75,6 +79,7 @@ const Content = (props) => {
               appData && !disabled
             } bg-[#635FC7] text-white p-4 rounded-full border-none w-40 h-12 flex items-center justify-center font-jakarta`}
             disabled={disabled ? true : false}
+            onClick={() => setNewTaskModal(true)}
           >
             +Add New Task
           </button>
@@ -123,11 +128,20 @@ const Content = (props) => {
         </div>
       )}
 
+      {/* the logic for switching states for the new column modal */}
       {modal && (
         <NewColumn
           handleCreateColumn={handleCreateColumn}
           modal={modal}
           setModal={setModal}
+        />
+      )}
+
+      {/* the logic for switching states for the new task modal */}
+      {newTaskModal && (
+        <NewTask
+          newTaskModal={newTaskModal}
+          setNewTaskModal={setNewTaskModal}
         />
       )}
 
