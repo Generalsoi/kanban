@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import OpenEyeIcon from "../../assets/images/openeye.png";
 import Column from "./column";
 import NewColumn from "./../modals/newColumn";
@@ -16,7 +16,23 @@ const Content = (props) => {
   // setting the state for opening the modal
   const [modal, setModal] = useState(false);
 
-  const [divcolor, setDivColor] = useState("");
+  // const [divcolor, setDivColor] = useState("");
+  // defining the function that generates random color
+  const randColor = () => {
+    return (
+      "#" +
+      Math.floor(Math.random() * 16777215)
+        .toString(16)
+        .padStart(6, "0")
+        .toUpperCase()
+    );
+  };
+
+  let newColor;
+
+  useEffect(() => {
+    newColor = randColor();
+  }, []);
 
   // defining the function to create a column
   const handleCreateColumn = (columnName) => {
@@ -25,22 +41,23 @@ const Content = (props) => {
     }
 
     // initializing the randomColor variable so it can be used in the new column generated
-    let colorRandom = randomColor();
+    // let colorRandom = randColor();
 
     // defining the new column object
     const newColumn = {
       title: columnName,
       tasks: [],
       id: Date.now(),
-      // bgColor: colorRandom,
+      bgColor: newColor,
     };
 
     setAppData((appData) => [...appData, newColumn]);
     setDisabled(false);
-    setDivColor(colorRandom);
+    // setDivColor(colorRandom);
+    // randColor();
   };
 
-  console.log(divcolor);
+  // console.log(colorRandom);
 
   // creating a state for getting the value from the new column input modal
   // const [value, setValue] = useState({ columnName: "" });
@@ -70,10 +87,10 @@ const Content = (props) => {
         <div className="flex h-full gap-4 p-4 ">
           <div className="w-4/5 flex gap-4 overflow-x-auto">
             {appData.map((column) => (
-              <div className="w-40">
+              <div className="w-40" key={column.id}>
                 <div className=" flex items-center gap-1">
                   <div
-                    className={`w-4 h-4 rounded-full bg-[${divcolor}]`}
+                    className={`block w-4 h-4 rounded-full bg-${column.bgColor} p-0`}
                   ></div>
                   <p className=" font-jakarta uppercase text-[#828FA3] font-bold text-sm">
                     {column.title}
