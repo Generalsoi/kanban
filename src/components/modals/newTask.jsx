@@ -10,10 +10,22 @@ const NewTask = (props) => {
       onClick={() => setNewTaskModal(false)}
     >
       <div
-        className="w-80 h-80 bg-white rounded-lg relative"
+        className="w-80 h-80 p-4 bg-white rounded-lg relative"
         onClick={(e) => e.stopPropagation()}
       >
-        <h2>Add New Task</h2>
+        <h2 className="mb-4">Add New Task</h2>
+
+        <div className="flex flex-col">
+          <label htmlFor="title" className="text-[#828FA3] font-bold">
+            Title
+          </label>
+          <input
+            id="title"
+            className="w-full h-10 p-4 border border-[#635FC7] dark:bg-[#2B2C37] focus:outline-none focus:border-[#635FC7]-700 dark:focus:text-white rounded-sm"
+            type="text"
+            placeholder="e.g. Take coffee break"
+          />
+        </div>
 
         <img
           src={CloseBtn}
