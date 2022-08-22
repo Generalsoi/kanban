@@ -10,7 +10,7 @@ const NewTask = (props) => {
       onClick={() => setNewTaskModal(false)}
     >
       <div
-        className="w-80 h-80 p-4 bg-white rounded-lg relative"
+        className="w-80 h-fit p-4 bg-white rounded-lg relative"
         onClick={(e) => e.stopPropagation()}
       >
         <h2 className="mb-4">Add New Task</h2>
@@ -21,20 +21,45 @@ const NewTask = (props) => {
           </label>
           <input
             id="title"
-            className="w-full h-10 p-4 border border-[#828FA3] dark:bg-[#2B2C37] focus:outline-none focus:border-[#635FC7]-700 dark:focus:text-white rounded-lg"
+            className="w-full h-8 p-4 border border-[#828FA3] dark:bg-[#2B2C37] focus:outline-none focus:border-[#635FC7]-700 dark:focus:text-white rounded-lg placeholder:text-sm"
             type="text"
             placeholder="e.g. Take coffee break"
           />
         </div>
 
         <div className="flex flex-col mb-4">
-          <label htmlFor="description">Description</label>
+          <label
+            htmlFor="description"
+            className="text-[#828FA3] font-bold mb-1"
+          >
+            Description
+          </label>
           <input
             type="text"
             id="description"
-            className="w-full h-20 p-4 border border-[#828FA3] dark:bg-[#2B2C37] focus:outline-none focus:border-[#635FC7]-700 dark:focus:text-white rounded-lg"
-            placeholder=""
+            className="w-full h-20 p-4 border border-[#828FA3] dark:bg-[#2B2C37] focus:outline-none focus:border-[#635FC7]-700 dark:focus:text-white rounded-lg placeholder:text-sm"
+            placeholder="e.g. It’s always good to take a break. This 15 minute break will 
+            recharge the batteries a little."
           />
+        </div>
+
+        <div className="flex flex-col mb-4">
+          <label htmlFor="subtasks" className="text-[#828FA3] font-bold mb-1">
+            Subtasks
+          </label>
+          <div className="flex gap-3 items-center">
+            <input
+              type="text"
+              id="subtasks"
+              className="w-full h-8 p-4 border border-[#828FA3] dark:bg-[#2B2C37] focus:outline-none focus:border-[#635FC7]-700 dark:focus:text-white rounded-lg placeholder:text-sm"
+              placeholder="e.g Make coffee"
+            />
+            <img
+              src={CloseBtn}
+              alt="close button"
+              className="w-4 h-4 cursor-pointer"
+            />
+          </div>
         </div>
 
         <img
