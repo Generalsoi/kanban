@@ -14,6 +14,15 @@ const Content = (props) => {
   // setting the state for the column data.
   const [appData, setAppData] = useState([]);
 
+  // to persist the appData state using local storage
+  useEffect(() => {
+    localStorage.getItem("currentAppData");
+  }, []);
+
+  // useEffect(() => {
+  //   window.localStorage.setItem("currentAppData", appData);
+  // }, [appData]);
+
   // setting the state for opening the new column modal
   const [modal, setModal] = useState(false);
 
@@ -57,6 +66,7 @@ const Content = (props) => {
 
     setAppData((appData) => [...appData, newColumn]);
     setDisabled(false);
+    localStorage.setItem("currentAppData", appData);
     // setDivColor(colorRandom);
     // randColor();
   };
