@@ -7,9 +7,6 @@ const NewColumn = (props) => {
 
   const [columnName, setColumnName] = useState("");
 
-  // initializing the useRef hook for the input field in this component
-  const inputRef = useRef("");
-
   // defining a function to close the modal on pressing the esc key down
   const handleOnKeyDown = (e) => {
     e.key === "Escape" && setModal(false);
@@ -37,7 +34,7 @@ const NewColumn = (props) => {
     //   setModal(false);
     // }
 
-    console.log(inputRef.current.value); // currently i have to click two times before this value is logged on the console. iono why?s
+    // console.log(inputRef.current.value); // currently i have to click two times before this value is logged on the console. iono why?s
   };
 
   return (

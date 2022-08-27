@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import OpenEyeIcon from "../../assets/images/openeye.png";
 import Column from "./column";
 import NewColumn from "./../modals/newColumn";
@@ -12,16 +12,27 @@ const Content = (props) => {
   const [disabled, setDisabled] = useState(true);
 
   // setting the state for the column data.
-  const [appData, setAppData] = useState([]);
+  const [appData, setAppData] = useState(
+    JSON.parse(localStorage.getItem("current_app_data")) ?? []
+  );
 
   // to persist the appData state using local storage
-  useEffect(() => {
-    localStorage.getItem("currentAppData");
-  }, []);
-
   // useEffect(() => {
-  //   window.localStorage.setItem("currentAppData", appData);
+  //   let currentAppData = localStorage.getItem("current_app_data");
+  //   setAppData(JSON.parse(currentAppData));
+  //   console.log(appData);
   // }, [appData]);
+
+  /// add to local storage
+  // const updatedAppData = useCallback(() => {
+  //   window.localStorage.setItem("current_app_data", JSON.stringify(appData));
+  // }, [appData]);
+  useEffect(() => {
+    // localStorage.getItem("currentAppData");
+    // console.log(appData);
+    // updatedAppData();
+    localStorage.setItem("current_app_data", JSON.stringify(appData));
+  }, [appData]);
 
   // setting the state for opening the new column modal
   const [modal, setModal] = useState(false);
@@ -43,9 +54,9 @@ const Content = (props) => {
 
   let newColor;
 
-  useEffect(() => {
-    newColor = randColor();
-  }, []);
+  // useEffect(() => {
+  //   newColor = randColor();
+  // }, []);
 
   // defining the function to create a column
   const handleCreateColumn = (columnName) => {
@@ -66,7 +77,7 @@ const Content = (props) => {
 
     setAppData((appData) => [...appData, newColumn]);
     setDisabled(false);
-    localStorage.setItem("currentAppData", appData);
+
     // setDivColor(colorRandom);
     // randColor();
   };
@@ -85,10 +96,8 @@ const Content = (props) => {
 
         <div>
           <button
-            className={`${disabled ? "bg-opacity-50" : "bg-opacity-100"} ${
-              appData && !disabled
-            } bg-[#635FC7] text-white p-4 rounded-full border-none w-40 h-12 flex items-center justify-center font-jakarta`}
-            disabled={disabled ? true : false}
+            className=" bg-[#635FC7] text-white p-4 rounded-full border-none w-40 h-12 flex items-center justify-center font-jakarta disabled:bg-opacity-50"
+            disabled={!appData.length ? true : false}
             onClick={() => setNewTaskModal(true)}
           >
             +Add New Task

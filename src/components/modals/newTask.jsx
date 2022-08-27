@@ -47,7 +47,7 @@ const NewTask = (props) => {
           <label htmlFor="subtasks" className="text-[#828FA3] font-bold mb-1">
             Subtasks
           </label>
-          <div className="flex gap-3 items-center">
+          <div className="flex gap-3 items-center mb-4">
             <input
               type="text"
               id="subtasks"
@@ -60,6 +60,9 @@ const NewTask = (props) => {
               className="w-4 h-4 cursor-pointer"
             />
           </div>
+          <button className="w-full h-8 rounded-full text-white bg-[#635FC7] ">
+            +Add New Subtask
+          </button>
         </div>
 
         <img
