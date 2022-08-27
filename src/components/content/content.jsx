@@ -52,8 +52,6 @@ const Content = (props) => {
     );
   };
 
-  let newColor;
-
   // useEffect(() => {
   //   newColor = randColor();
   // }, []);
@@ -72,7 +70,7 @@ const Content = (props) => {
       title: columnName,
       tasks: [],
       id: Date.now(),
-      bgColor: newColor,
+      bgColor: randColor(),
     };
 
     setAppData((appData) => [...appData, newColumn]);
@@ -114,7 +112,8 @@ const Content = (props) => {
               <div className="w-40" key={column.id}>
                 <div className=" flex items-center gap-1">
                   <div
-                    className={`block w-4 h-4 rounded-full bg-${column.bgColor} p-0`}
+                    className={` w-4 h-4 rounded-full p-0`}
+                    style={{ backgroundColor: column.bgColor }}
                   ></div>
                   <p className=" font-jakarta uppercase text-[#828FA3] font-bold text-sm">
                     {column.title}
