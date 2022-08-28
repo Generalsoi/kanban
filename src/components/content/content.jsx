@@ -109,7 +109,7 @@ const Content = (props) => {
         <div className="flex h-full gap-4 p-4 ">
           <div className="w-4/5 flex gap-4 overflow-x-auto">
             {appData.map((column) => (
-              <div className="w-40" key={column.id}>
+              <div className="w-auto md:w-40" key={column.id}>
                 <div className=" flex items-center gap-1">
                   <div
                     className={` w-4 h-4 rounded-full p-0`}
