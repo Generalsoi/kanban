@@ -10,15 +10,15 @@ const Dashboard = () => {
     <div className="flex">
       <div
         className={`${
-          sidebar ? "w-1/5" : "w-0"
-        } h-screen border-r-1 border-r-[#E4EBFA]`}
+          sidebar ? "sm:w-1/5" : "w-0"
+        } w-0 lg:block h-screen border-r-1 border-r-[#E4EBFA]`}
       >
         <Sidebar sidebar={sidebar} setSidebar={setSidebar} />
       </div>
       <div
         className={`bg-[#F4F7FD] dark:bg-[#20212C] h-screen ${
-          sidebar ? "w-4/5" : "w-full"
-        }`}
+          sidebar ? "sm:w-4/5" : "w-full"
+        } w-full`}
       >
         <Content sidebar={sidebar} setSidebar={setSidebar} />
       </div>
