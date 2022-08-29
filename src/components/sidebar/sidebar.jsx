@@ -8,7 +8,7 @@ import EyeIcon from "../../assets/images/eye.png";
 
 const Sidebar = (props) => {
   // creating an object destructuring for passing down the props
-  const { sidebar, setSidebar } = props;
+  const { sidebar, setSidebar, mobile } = props;
   console.log(sidebar);
 
   //created an array containing the menus in the sidebar.
@@ -34,7 +34,11 @@ const Sidebar = (props) => {
   }, [dark]);
 
   return (
-    <div className="bg-white dark:bg-[#2B2C37] h-screen">
+    <div
+      className={`${
+        mobile && "bg-[#635Fc7]"
+      } bg-white dark:bg-[#2B2C37] h-screen`}
+    >
       <div className="w-full p-4 flex gap-3 items-center ">
         <img src={Logo} alt="kanban logo" />
         <h4 className="font-jakarta font-extrabold text-3xl text-[#000112] dark:text-white">

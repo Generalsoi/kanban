@@ -88,7 +88,7 @@ const Content = (props) => {
   return (
     <div className="h-screen relative">
       <div className="flex w-full h-14 md:h-20 p-4 justify-between items-center bg-white dark:bg-[#2B2C37] border-l-2 ">
-        <h3 className="font-jakarta font-bold text-sm md:text-2xl dark:text-white">
+        <h3 className="ml-10 sm:ml-0 font-jakarta font-bold text-sm md:text-2xl dark:text-white">
           Platform Launch
         </h3>
 
