@@ -88,13 +88,13 @@ const Content = (props) => {
   return (
     <div className="h-screen relative">
       <div className="flex w-full h-14 md:h-20 p-4 justify-between items-center bg-white dark:bg-[#2B2C37] border-l-2 ">
-        <h3 className="ml-10 sm:ml-0 font-jakarta font-bold text-sm md:text-2xl dark:text-white">
+        <h3 className=" sm:ml-0 font-jakarta font-bold text-sm md:text-2xl dark:text-white">
           Platform Launch
         </h3>
 
         <div>
           <button
-            className=" bg-[#635FC7] text-white text-sm w-36 h-8 p-1 md:w-40 md:h-12 md:p-4 rounded-full border-none flex items-center justify-center font-jakarta disabled:bg-opacity-50"
+            className="sm:mr-0 mr-10 bg-[#635FC7] text-white text-sm w-36 h-8 p-1 md:w-40 md:h-12 md:p-4 rounded-full border-none flex items-center justify-center font-jakarta disabled:bg-opacity-50"
             disabled={!appData.length ? true : false}
             onClick={() => setNewTaskModal(true)}
           >

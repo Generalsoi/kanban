@@ -11,8 +11,8 @@ const Dashboard = () => {
   return (
     <div className="flex relative">
       <div
-        className={`${sidebar ? "sm:w-1/5 w-0" : "w-0"} ${
-          mobile ? "w-40 z-40" : "w-0"
+        className={`${
+          sidebar ? "sm:w-1/5 w-0" : "w-0"
         }  w-0 lg:block h-screen border-r-1 border-r-[#E4EBFA]`}
       >
         <Sidebar sidebar={sidebar} setSidebar={setSidebar} mobile={mobile} />
@@ -28,7 +28,7 @@ const Dashboard = () => {
         <FontAwesomeIcon icon="fa-solid fa-bars" />
       </div> */}
       <div
-        className="fixed top-5 left-4 sm:hidden z-50"
+        className="fixed top-5 right-4 sm:hidden z-50"
         onClick={() => setMobile(!mobile)}
       >
         <div className="w-7 h-1 mb-1 rounded-full bg-[#635FC7] dark:bg-white"></div>

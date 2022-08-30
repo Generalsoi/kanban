@@ -34,12 +34,8 @@ const Sidebar = (props) => {
   }, [dark]);
 
   return (
-    <div
-      className={`${
-        mobile && "bg-[#635Fc7]"
-      } bg-white dark:bg-[#2B2C37] h-screen`}
-    >
-      <div className="w-full p-4 flex gap-3 items-center ">
+    <div className={` dark:bg-[#2B2C37] h-screen`}>
+      <div className={` w-full p-4 flex gap-3 items-center `}>
         <img src={Logo} alt="kanban logo" />
         <h4 className="font-jakarta font-extrabold text-3xl text-[#000112] dark:text-white">
           kanban
