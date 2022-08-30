@@ -11,9 +11,11 @@ const Dashboard = () => {
   return (
     <div className="flex relative">
       <div
-        className={`${
-          sidebar ? "sm:w-1/5 w-0" : "w-0"
-        }  w-0 lg:block h-screen border-r-1 border-r-[#E4EBFA]`}
+        className={`${sidebar ? "sm:w-1/5" : "w-0"}  ${mobile && "w-full"} ${
+          mobile && "fixed"
+        } ${mobile && "z-40"} ${
+          mobile && "bg-[#635FC7]"
+        } h-screen border-r-1 border-r-[#E4EBFA]`}
       >
         <Sidebar sidebar={sidebar} setSidebar={setSidebar} mobile={mobile} />
       </div>
@@ -31,9 +33,15 @@ const Dashboard = () => {
         className="fixed top-5 right-4 sm:hidden z-50"
         onClick={() => setMobile(!mobile)}
       >
-        <div className="w-7 h-1 mb-1 rounded-full bg-[#635FC7] dark:bg-white"></div>
-        <div className="w-7 h-1 mb-1 rounded-full bg-[#635FC7] dark:bg-white"></div>
-        <div className="w-7 h-1 mb-1 rounded-full bg-[#635FC7] dark:bg-white"></div>
+        <div
+          className={`w-7 h-1 mb-1 rounded-full bg-[#635FC7] dark:bg-white`}
+        ></div>
+        <div
+          className={`w-7 h-1 mb-1 rounded-full bg-[#635FC7] dark:bg-white`}
+        ></div>
+        <div
+          className={`w-7 h-1 mb-1 rounded-full bg-[#635FC7] dark:bg-white`}
+        ></div>
       </div>
     </div>
   );
