@@ -14,7 +14,7 @@ const Dashboard = () => {
         className={`${sidebar ? "sm:w-1/5" : "w-0"}  ${mobile && "w-full"} ${
           mobile && "fixed"
         } ${mobile && "z-40"} ${
-          mobile && "bg-[#635FC7]"
+          mobile && "bg-white"
         } h-screen border-r-1 border-r-[#E4EBFA]`}
       >
         <Sidebar sidebar={sidebar} setSidebar={setSidebar} mobile={mobile} />
@@ -29,20 +29,30 @@ const Dashboard = () => {
       {/* <div className="fixed top-0">
         <FontAwesomeIcon icon="fa-solid fa-bars" />
       </div> */}
-      <div
-        className="fixed top-5 right-4 sm:hidden z-50"
-        onClick={() => setMobile(!mobile)}
-      >
+      {!mobile ? (
         <div
-          className={`w-7 h-1 mb-1 rounded-full bg-[#635FC7] dark:bg-white`}
-        ></div>
+          className="fixed top-5 right-4 sm:hidden z-50"
+          onClick={() => setMobile(true)}
+        >
+          <div
+            className={`w-7 h-1 mb-1 rounded-full bg-[#635FC7] dark:bg-white `}
+          ></div>
+          <div
+            className={`w-7 h-1 mb-1 rounded-full bg-[#635FC7] dark:bg-white `}
+          ></div>
+          <div
+            className={`w-7 h-1 mb-1 rounded-full bg-[#635FC7] dark:bg-white `}
+          ></div>
+        </div>
+      ) : (
         <div
-          className={`w-7 h-1 mb-1 rounded-full bg-[#635FC7] dark:bg-white`}
-        ></div>
-        <div
-          className={`w-7 h-1 mb-1 rounded-full bg-[#635FC7] dark:bg-white`}
-        ></div>
-      </div>
+          className="fixed top-5 right-4 sm:hidden z-50"
+          onClick={() => setMobile(false)}
+        >
+          <div className="w-7 h-1 rounded-full bg-[#635FC7] rotate-45 -translate-x-1"></div>
+          <div className="w-7 h-1 rounded-full bg-[#635FC7] -rotate-45 -translate-y-1 -translate-x-1"></div>
+        </div>
+      )}
     </div>
   );
 };
