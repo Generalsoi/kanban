@@ -133,8 +133,8 @@ const Content = (props) => {
           </div>
         </div>
       ) : (
-        <div className="w-full flex flex-col items-center justify-center">
-          <h4 className="mt-64 text-[#828FA3] text-lg font-bold font-jakarta">
+        <div className="w-full flex flex-col items-center justify-center p-4">
+          <h4 className="mt-64 text-[#828FA3] text-md sm:text-lg font-bold font-jakarta">
             This board is empty. Create a new column to get started.
           </h4>
           <button

@@ -60,7 +60,10 @@ const NewTask = (props) => {
               className="w-4 h-4 cursor-pointer"
             />
           </div>
-          <button className="w-full h-8 rounded-full text-white bg-[#635FC7] ">
+          <button
+            className="w-full h-8 rounded-full text-[#635FC7] text-sm font-bold  "
+            style={{ background: "rgba(99, 95, 199, 0.1)" }}
+          >
             +Add New Subtask
           </button>
         </div>

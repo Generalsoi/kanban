@@ -13,7 +13,7 @@ const Dashboard = () => {
       <div
         className={`${sidebar ? "sm:w-1/5 w-0" : "sm:w-0"}  ${
           mobile &&
-          "fixed sm:block z-40 bg-white w-full ease-in-out  duration-500"
+          "fixed sm:block z-40 bg-white w-full transition-all duration-500"
         }   h-screen border-r-1 border-r-[#E4EBFA] `}
       >
         <Sidebar sidebar={sidebar} setSidebar={setSidebar} mobile={mobile} />
