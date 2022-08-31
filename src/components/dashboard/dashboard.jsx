@@ -11,7 +11,7 @@ const Dashboard = () => {
   return (
     <div className="flex relative">
       <div
-        className={`${sidebar && "sm:w-1/5 w-0"}  ${
+        className={`${sidebar ? "sm:w-1/5 w-0" : "sm:w-0"}  ${
           mobile && "fixed z-40 bg-white w-full"
         }  h-screen border-r-1 border-r-[#E4EBFA]`}
       >
