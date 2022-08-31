@@ -2,12 +2,19 @@ import React, { useState } from "react";
 import CloseBtn from "../../assets/images/close.png";
 
 const NewTask = (props) => {
-  const { newTaskModal, setNewTaskModal, appData } = props;
+  const { newTaskModal, setNewTaskModal, appData, setAppData } = props;
 
   const [taskName, setTaskName] = useState("");
+  const [taskState, setTaskState] = useState("");
 
   //defining the function to handle adding new task
-  const handleAddTask = () => {};
+  const handleAddTask = () => {
+    if (!taskName) {
+      return;
+    }
+
+    setAppData((appData) => [...appData]);
+  };
 
   return (
     <div
@@ -95,6 +102,8 @@ const NewTask = (props) => {
             name="status"
             id="status"
             className="w-full text-xs font-jakarta h-8 p-2 border border-[#828FA3] dark:bg-[#2B2C37] focus:outline-none focus:border-[#635FC7]-700 dark:focus:text-white rounded"
+            value={taskState}
+            onChange={(e) => setTaskState(e.target.value)}
           >
             {appData.map((data) => (
               <option key={data.id} value={data.title}>

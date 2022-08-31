@@ -147,6 +147,7 @@ const Content = (props) => {
           newTaskModal={newTaskModal}
           setNewTaskModal={setNewTaskModal}
           appData={appData}
+          setAppData={setAppData}
         />
       )}
 
