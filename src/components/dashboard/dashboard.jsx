@@ -12,8 +12,9 @@ const Dashboard = () => {
     <div className="flex relative">
       <div
         className={`${sidebar ? "sm:w-1/5 w-0" : "sm:w-0"}  ${
-          mobile && "fixed z-40 bg-white w-full"
-        }  h-screen border-r-1 border-r-[#E4EBFA]`}
+          mobile &&
+          "fixed sm:block z-40 bg-white w-full ease-in-out  duration-500"
+        }   h-screen border-r-1 border-r-[#E4EBFA] `}
       >
         <Sidebar sidebar={sidebar} setSidebar={setSidebar} mobile={mobile} />
       </div>
@@ -31,8 +32,8 @@ const Dashboard = () => {
         <div
           className="fixed top-5 right-4 sm:hidden z-50"
           onClick={() => {
-            setMobile(true);
             setSidebar(false);
+            setMobile(true);
           }}
         >
           <div
@@ -47,14 +48,14 @@ const Dashboard = () => {
         </div>
       ) : (
         <div
-          className="fixed top-5 right-4 sm:hidden z-50"
+          className="fixed top-6 right-3 sm:hidden z-50 "
           onClick={() => {
-            setMobile(false);
             setSidebar(true);
+            setMobile(false);
           }}
         >
-          <div className="w-7 h-1 rounded-full bg-[#635FC7] rotate-45 -translate-x-1"></div>
-          <div className="w-7 h-1 rounded-full bg-[#635FC7] -rotate-45 -translate-y-1 -translate-x-1"></div>
+          <div className="w-7 h-1 rounded-full bg-[#635FC7] rotate-45 ease-in-out  duration-500 -translate-x-1"></div>
+          <div className="w-7 h-1 rounded-full bg-[#635FC7] -rotate-45 ease-in-out  duration-500 -translate-y-1 -translate-x-1"></div>
         </div>
       )}
     </div>
