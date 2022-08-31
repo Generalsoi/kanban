@@ -16,21 +16,7 @@ const Content = (props) => {
     JSON.parse(localStorage.getItem("current_app_data")) ?? []
   );
 
-  // to persist the appData state using local storage
-  // useEffect(() => {
-  //   let currentAppData = localStorage.getItem("current_app_data");
-  //   setAppData(JSON.parse(currentAppData));
-  //   console.log(appData);
-  // }, [appData]);
-
-  /// add to local storage
-  // const updatedAppData = useCallback(() => {
-  //   window.localStorage.setItem("current_app_data", JSON.stringify(appData));
-  // }, [appData]);
   useEffect(() => {
-    // localStorage.getItem("currentAppData");
-    // console.log(appData);
-    // updatedAppData();
     localStorage.setItem("current_app_data", JSON.stringify(appData));
   }, [appData]);
 
@@ -160,6 +146,7 @@ const Content = (props) => {
         <NewTask
           newTaskModal={newTaskModal}
           setNewTaskModal={setNewTaskModal}
+          appData={appData}
         />
       )}
 
